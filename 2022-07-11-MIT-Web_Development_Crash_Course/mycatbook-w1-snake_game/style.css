@@ -1,0 +1,29 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    display: flex; /* I think it is optional.*/
+    margin: 0;
+}
+
+#game-board {
+    width: 100vmin;
+    height: 100vmin;
+    background-color: black;
+    display: grid;
+    grid-template-rows: repeat(21, 1fr);
+    /*fr is the meaning of 'flex'. It means that the size of box will adjust to the game board automatically.*/
+    /* GRID_SIZE = 21 */
+    grid-template-columns: repeat(21, 1fr);
+    margin: auto auto;
+}
+
+.snake {
+    background-color: lime;
+    border: 0.25vmin solid black;
+}
+
+.food {
+    background-color: red;
+    border: 0.25vmin solid black;
+}
