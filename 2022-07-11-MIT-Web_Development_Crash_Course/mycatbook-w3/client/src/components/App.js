@@ -3,10 +3,14 @@ import NavBar from "./modules/NavBar.js";
 import Profile from "./pages/Profile.js";
 // TODO (step0): import Feed
 // TODO (step5): import Router and NotFound
+import "./pages/Feed.js";
+import "./pages/NotFound.js";
+
 
 // To use styles, import the necessary CSS files
 import "../utilities.css";
 import "./App.css";
+import Feed from "./pages/Feed.js";
 
 /**
  * Define the "App" component as a function.
@@ -18,7 +22,8 @@ const App = () => {
     <>
       <NavBar />
       <div className="App-container">
-        <Profile />
+        {/* <Profile /> */}
+        <Feed />
         {/* TODO (step0): render Feed instead of Profile */}
         {/* TODO (step5): use Router to route between pages */}
       </div>
