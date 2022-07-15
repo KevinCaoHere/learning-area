@@ -19,7 +19,7 @@ const Feed = () => {
 
   // TODO (step1): render the raw stories data from state
   // return <div>{JSON.stringify(stories)}</div>;
-  // Stories is an object. Stringfy is needed when printing the state.
+  /* Stories is an object. Stringfy is needed when printing the state. */
 
   // TODO (step2): render a SingleStory with hardcoded props
   // return (
@@ -29,15 +29,45 @@ const Feed = () => {
   // );
 
   // TODO (step3): map the state to SingleStory components
-  return stories.map((item) => {
-    return (
+  // if (stories.length == 0) {
+  //   return <div>No Stories!</div>;
+  // } else {
+  //   return stories.map((item) => {
+  //     return (
+  //       <div>
+  //         <SingleStory creator_name={item.creator_name} content={item.content} />
+  //       </div>
+  //     );
+  //   });
+  // }
+
+  // TODO (step4): add in the NewStory component
+  let storyQuery = null;
+  if (stories.length == 0) {
+    storyQuery = <div>No Stories!</div>;
+  } else {
+    storyQuery = stories.map((item) => (
       <div>
         <SingleStory creator_name={item.creator_name} content={item.content} />
       </div>
-    );
-  });
+    ));
+  }
 
-  // TODO (step4): add in the NewStory component
+  return <div>{storyQuery}</div>;
+
+  // const storyQuery = null;
+  // if (stories.length == 0) {
+  //   storyQuery = <div>No Stories!</div>;
+  // } else {
+  //   storyQuery = stories.map((item) => {
+  //     <div>
+  //       <SingleStory creator_name={item.creator_name} content={item.content} />
+  //     </div>;
+  //   });
+  // };
+
+  // return <div><NewStory/></div>;
+
   // TODO (step6): use Card instead of SingleStory
 };
 

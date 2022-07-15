@@ -6,7 +6,6 @@ import Profile from "./pages/Profile.js";
 import "./pages/Feed.js";
 import "./pages/NotFound.js";
 
-
 // To use styles, import the necessary CSS files
 import "../utilities.css";
 import "./App.css";
@@ -22,9 +21,10 @@ const App = () => {
     <>
       <NavBar />
       <div className="App-container">
+        {/* TODO (step0): render Feed instead of Profile */}
         {/* <Profile /> */}
         <Feed />
-        {/* TODO (step0): render Feed instead of Profile */}
+
         {/* TODO (step5): use Router to route between pages */}
       </div>
     </>

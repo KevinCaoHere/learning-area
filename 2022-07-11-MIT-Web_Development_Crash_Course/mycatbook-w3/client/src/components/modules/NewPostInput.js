@@ -53,6 +53,8 @@ const NewPostInput = (props) => {
 const NewStory = () => {
   // TODO (step4): implement addStory
   // TODO (step4): implement render
+
+  return <div>newStory</div>;
 };
 
 /**
