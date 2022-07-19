@@ -12,6 +12,10 @@
   margin-left: var(--l);
 }
 
+.u-inlineBlock{
+  display: inline-block;
+}
+
 .NavBar-link,
 .NavBar-link:visited {
   color: var(--white);

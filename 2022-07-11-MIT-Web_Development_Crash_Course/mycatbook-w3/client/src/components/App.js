@@ -4,7 +4,8 @@ import Profile from "./pages/Profile.js";
 // TODO (step0): import Feed
 // TODO (step5): import Router and NotFound
 import "./pages/Feed.js";
-import "./pages/NotFound.js";
+import { Router } from "@reach/router";
+import NotFound from "./pages/NotFound.js";
 
 // To use styles, import the necessary CSS files
 import "../utilities.css";
@@ -21,11 +22,13 @@ const App = () => {
     <>
       <NavBar />
       <div className="App-container">
-        {/* TODO (step0): render Feed instead of Profile */}
-        {/* <Profile /> */}
-        <Feed />
-
-        {/* TODO (step5): use Router to route between pages */}
+        <Router>
+          {/* TODO (step0): render Feed instead of Profile */}
+          <Profile path="/profile" />
+          <Feed path="/feed" />
+          {/* TODO (step5): use Router to route between pages */}
+          <NotFound default />
+        </Router>
       </div>
     </>
   );

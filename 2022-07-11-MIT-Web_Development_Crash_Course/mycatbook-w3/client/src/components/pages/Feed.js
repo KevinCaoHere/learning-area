@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { get } from "../../utilities";
 // TODO (step2): import SingleStory
-// TODO (step4): import NewStory
-// TODO (step6): remove SingleStory import, import Card
 import SingleStory from "../modules/SingleStory"; //fxxk
+// TODO (step4): import NewStory
+import { NewStory } from "../modules/NewPostInput";
+// TODO (step6): remove SingleStory import, import Card
+import Card from "../modules/Card.js";
 
 const Feed = () => {
   // TODO (step1): define state to hold stories
@@ -42,33 +44,42 @@ const Feed = () => {
   // }
 
   // TODO (step4): add in the NewStory component
-  let storyQuery = null;
-  if (stories.length == 0) {
-    storyQuery = <div>No Stories!</div>;
-  } else {
-    storyQuery = stories.map((item) => (
-      <div>
-        <SingleStory creator_name={item.creator_name} content={item.content} />
-      </div>
-    ));
-  }
-
-  return <div>{storyQuery}</div>;
-
-  // const storyQuery = null;
+  // let storyQuery = null;
   // if (stories.length == 0) {
   //   storyQuery = <div>No Stories!</div>;
   // } else {
-  //   storyQuery = stories.map((item) => {
+  //   storyQuery = stories.map((item) => (
   //     <div>
   //       <SingleStory creator_name={item.creator_name} content={item.content} />
-  //     </div>;
-  //   });
-  // };
+  //     </div>
+  //   ));
+  // }
 
-  // return <div><NewStory/></div>;
+  // return (
+  //   <div>
+  //     <NewStory />
+  //     {storyQuery}
+  //   </div>
+  // );
 
   // TODO (step6): use Card instead of SingleStory
+  let storyQuery = null;
+  if (stories.length == 0) {
+    storyQuery = <div>No Stories</div>;
+  } else {
+    storyQuery = stories.map((item) => {
+      <div>
+        <Card _id={item._id} creator_name={item.creator_name} content={item.content} />
+      </div>;
+    });
+  }
+
+  return (
+    <div>
+      <NewStory />
+      {storyQuery}
+    </div>
+  );
 };
 
 export default Feed;
