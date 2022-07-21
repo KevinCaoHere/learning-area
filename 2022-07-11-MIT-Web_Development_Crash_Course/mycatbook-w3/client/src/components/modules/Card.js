@@ -6,6 +6,7 @@ import { get } from "../../utilities";
 // TODO (step9): import CommentsBlock
 import SingleStory from "./SingleStory.js";
 import SingleComment from "./SingleComment";
+import { NewComment } from "./NewPostInput";
 
 import "./Card.css";
 
@@ -56,6 +57,7 @@ const Card = (props) => {
     <div className="Card-container">
       <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
       {commmentQuery}
+      <NewComment storyId={props._id}/>
     </div>
   );
 

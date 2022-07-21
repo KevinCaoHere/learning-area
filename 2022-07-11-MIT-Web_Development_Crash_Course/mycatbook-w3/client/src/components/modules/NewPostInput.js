@@ -66,12 +66,18 @@ const NewStory = () => {
  * Proptypes
  * @param {string} storyId to add comment to
  */
-const NewComment = () => {
-  const addComment = (value) => {
+const NewComment = (props) => {
+  const addComment = (storyId, value) => {
     // TODO (step8): implement addComment (refer to NewStory)
+    post("/api/comment", { parent: storyId, content: value });
   };
 
   // TODO (step8): implement render (refer to NewStory)
+  return (
+    <div>
+      <NewPostInput storyId={props.storyId} onSubmit={addComment} defaultText="Enter Comment Here!" />
+    </div>
+  );
 };
 
 export { NewComment, NewStory };
