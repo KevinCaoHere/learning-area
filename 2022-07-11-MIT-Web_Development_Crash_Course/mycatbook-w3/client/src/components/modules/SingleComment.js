@@ -10,7 +10,7 @@ import React from "react";
  */
 const SingleComment = (props) => {
   return (
-    <div className="Card-commentBody">
+    <div>
       {/* TODO (step7): use JSX and props to render comment creator and content */}
       <span className="u-bold">{props.creator_name}</span>: <span>{props.content}</span>
     </div>

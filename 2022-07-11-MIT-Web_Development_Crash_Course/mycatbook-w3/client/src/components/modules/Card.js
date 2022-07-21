@@ -56,8 +56,12 @@ const Card = (props) => {
   return (
     <div className="Card-container">
       <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
-      {commmentQuery}
-      <NewComment storyId={props._id}/>
+      <div className="Card-commentBody">
+        {commmentQuery}
+        <div className="Card-commentSection">
+          <NewComment storyId={props._id} />
+        </div>
+      </div>
     </div>
   );
 
