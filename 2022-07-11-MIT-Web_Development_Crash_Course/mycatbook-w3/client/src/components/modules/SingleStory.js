@@ -17,7 +17,7 @@ const SingleStory = (props) => {
       {/* TODO (step2): use JSX and props to render story creator and content */}
       <div className="Card-storyUser">{props.creator_name}</div>
       <div className="Card-storyContent">{props.content}</div>
-      <hr/><br/>
+      {/* <hr/><br/> */}
     </div>
   );
 };

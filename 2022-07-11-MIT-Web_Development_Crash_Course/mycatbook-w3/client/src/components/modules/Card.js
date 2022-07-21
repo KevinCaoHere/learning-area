@@ -5,6 +5,7 @@ import { get } from "../../utilities";
 // TODO (step8): import NewComment
 // TODO (step9): import CommentsBlock
 import SingleStory from "./SingleStory.js";
+import SingleComment from "./SingleComment";
 
 import "./Card.css";
 
@@ -23,22 +24,41 @@ const Card = (props) => {
   useEffect(() => {
     // TODO (step6): implement a GET call to retrieve comments,
     // and assign it to state
-    // get("/api/comment", { parent: props._id }).then((item) => {
-    //   setComments(item);
-    // });
+    get("/api/comment", { parent: props._id }).then((item) => {
+      setComments(item);
+    });
   }, []);
 
   // TODO (step6): render a SingleStory using props,
   // and render the comments from state (with JSON.stringify)
-  return (
-    <div>
-      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
-      {/* {JSON.stringify(comments)} */}
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+  //     {JSON.stringify(comments)}
+  //   </div>
+  // );
 
   // from state using a map (refer to Feed)
   // TODO (step7): map comments from state into SingleComment
+  let commmentQuery = null;
+  if (comments.length == 0) {
+    commmentQuery = [];
+  } else {
+    commmentQuery = comments.map((item) => (
+      <div className="Card-commentSection">
+        <SingleComment _id={item._id} creator_name={item.creator_name} content={item.content} />
+        {/* The current code is the relation between the input and output. Thus it is important to read the definition of input and output. */}
+      </div>
+    ));
+  }
+
+  return (
+    <div className="Card-container">
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      {commmentQuery}
+    </div>
+  );
+
   // components (refer to Feed)
   // TODO (step8): add in the NewComment component (refer to Feed)
   // TODO (step9): use CommentsBlock

@@ -67,11 +67,13 @@ const Feed = () => {
   if (stories.length == 0) {
     storyQuery = <div>No Stories</div>;
   } else {
-    storyQuery = stories.map((item) => {
+    storyQuery = stories.map((item) => (
+      // stories.map((item)=>(JSX));
+      // stories.map((item)=>{return (JSX);})
       <div>
         <Card _id={item._id} creator_name={item.creator_name} content={item.content} />
-      </div>;
-    });
+      </div>
+    ));
   }
 
   return (
