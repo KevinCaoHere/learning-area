@@ -64,6 +64,10 @@ const Feed = () => {
 
   // TODO (step6): use Card instead of SingleStory
   let storyQuery = null;
+  const addNewStory = (storyObj) => {
+    setStories(stories.concat([storyObj]));
+  };
+
   if (stories.length == 0) {
     storyQuery = <div>No Stories</div>;
   } else {
@@ -78,7 +82,7 @@ const Feed = () => {
 
   return (
     <div>
-      <NewStory />
+      <NewStory addNewStory={addNewStory} />
       {storyQuery}
     </div>
   );

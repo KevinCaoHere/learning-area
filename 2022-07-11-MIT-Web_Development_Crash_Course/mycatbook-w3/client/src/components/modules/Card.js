@@ -7,6 +7,7 @@ import { get } from "../../utilities";
 import SingleStory from "./SingleStory.js";
 import SingleComment from "./SingleComment";
 import { NewComment } from "./NewPostInput";
+import CommentsBlock from "./CommentsBlock";
 
 import "./Card.css";
 
@@ -41,7 +42,38 @@ const Card = (props) => {
 
   // from state using a map (refer to Feed)
   // TODO (step7): map comments from state into SingleComment
+  // let commmentQuery = null;
+  // if (comments.length == 0) {
+  //   commmentQuery = [];
+  // } else {
+  //   commmentQuery = comments.map((item) => (
+  //     <div className="Card-commentSection">
+  //       <SingleComment _id={item._id} creator_name={item.creator_name} content={item.content} />
+  //       {/* The current code is the relation between the input and output. Thus it is important to read the definition of input and output. */}
+  //     </div>
+  //   ));
+  // }
+
+  // return (
+  //   <div className="Card-container">
+  //     <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+  //     <div className="Card-commentBody">
+  //       {commmentQuery}
+  //       <div className="Card-commentSection">
+  //         <NewComment storyId={props._id} />
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+
+  // components (refer to Feed)
+  // TODO (step8): add in the NewComment component (refer to Feed)
+  // TODO (step9): use CommentsBlock
   let commmentQuery = null;
+  const addNewComment = (commentObj) => {
+    setComments(comments.concat([commentObj]));
+  };
+
   if (comments.length == 0) {
     commmentQuery = [];
   } else {
@@ -59,15 +91,11 @@ const Card = (props) => {
       <div className="Card-commentBody">
         {commmentQuery}
         <div className="Card-commentSection">
-          <NewComment storyId={props._id} />
+          <NewComment storyId={props._id} addNewComment={addNewComment}/>
         </div>
       </div>
     </div>
   );
-
-  // components (refer to Feed)
-  // TODO (step8): add in the NewComment component (refer to Feed)
-  // TODO (step9): use CommentsBlock
 };
 
 export default Card;
