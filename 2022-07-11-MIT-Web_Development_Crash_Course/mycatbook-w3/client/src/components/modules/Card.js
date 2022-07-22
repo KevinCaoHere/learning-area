@@ -70,6 +70,7 @@ const Card = (props) => {
   // TODO (step8): add in the NewComment component (refer to Feed)
   // TODO (step9): use CommentsBlock
   let commmentQuery = null;
+
   const addNewComment = (commentObj) => {
     setComments(comments.concat([commentObj]));
   };
