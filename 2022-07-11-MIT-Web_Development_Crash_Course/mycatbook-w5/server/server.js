@@ -16,15 +16,15 @@
 const express = require("express"); // backend framework for our node server.
 const path = require("path"); // provide utilities for working with file and directory paths
 
+const api = require("./api.js"); // api request
+
 // create a new express server
 const app = express();
 
 // allow us to make post requests
 app.use(express.json());
 
-app.get("/api/test", (req, res) => {
-  res.send({ message: "Wow I made my first API!" });
-});
+app.use("/api", api);
 
 // Load the compiled react files, which will serve /index.html and /bundle.js
 const reactPath = path.resolve(__dirname, "..", "client", "dist");
@@ -38,7 +38,7 @@ app.get("*", (req, res) => {
 // any server errors cause this function to run
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-  if( status === 500 ){
+  if (status === 500) {
     // 500 means Internal Server Error
     console.log("The server errored when processing a request");
     console.log(err);
